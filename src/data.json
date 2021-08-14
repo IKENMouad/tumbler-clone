@@ -3,7 +3,14 @@
             "name": "Batman",
             "occupation": "Detective",
             "description": "brooding batman is brooding.",
-            "tags": ["bat", "bruce", "wayne", "rich", "hasissues", "bat-fam"]
+            "tags": [
+                "bat",
+                "bruce",
+                "wayne",
+                "rich",
+                "hasissues",
+                "bat-fam"
+            ]
         },
         {
             "name": "Wonder Woman",

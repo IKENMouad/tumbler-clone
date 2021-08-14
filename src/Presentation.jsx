@@ -5,10 +5,8 @@ import SidePanel from "./SidePanel.jsx";
 
 const Presentation = styled.div`        
     display: flex;  
-    background: white;        
-    margin: 0 auto;
-    margin-top: 6vh;
-    
+    background: #001935;        
+    margin: 0 auto;    
 
     @media(min-width: 450px){
         width: 100%;
@@ -21,16 +19,16 @@ const Presentation = styled.div`
     }
 
     @media (min-width: 1200px){              
-        width: 1024px;        
+        width: 1024px;       
     }
 `;
 
 
 export default ({content}) => {
-    return (
-        <Presentation>            
-            <Timeline content = {content}/>
-            <SidePanel/>            
-        </Presentation>
-    );
+  return (
+    <Presentation>
+      <Timeline content={content} />
+      <SidePanel />
+    </Presentation>
+  );
 }

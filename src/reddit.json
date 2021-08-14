@@ -32,7 +32,7 @@
                 "archived": false,
                 "clicked": false,
                 "no_follow": false,
-                "author": "black_flag",
+                "   ": "black_flag",
                 "num_crossposts": 0,
                 "link_flair_text": "No Context",
                 "mod_reports": [],
@@ -214,7 +214,8 @@
                 "domain": "i.imgur.com",
                 "hidden": false,
                 "preview": {
-                    "images": [{
+                    "images": [
+                        {
                         "source": {
                             "url": "https://i.redditmedia.com/CST7GOP3mw3BZbkyZfTNto8KIo-Pt7i6c4oO8lslwiM.gif?fm=jpg&amp;s=348053e44d5517ee9399f97e6cf1beb0",
                             "width": 403,
