@@ -12,6 +12,9 @@ const RootContainer = styled.div`
   width: 30%;
   font-family: Helvetica;
   font-size: 14px;
+  @media (min-width: 450px) {
+    display: none;
+  }
   @media (min-width: 1200px) {
     display: flex;
   }
@@ -27,7 +30,7 @@ const SectionContent = styled.div`
 `;
 
 const SectionTitle = styled.div`
-  border-bottom: 3px solid #00b8ff;
+  border-bottom: 3px solid #00B8ff;
   font-weight: bold;
   padding-bottom: 1vh;
   margin-bottom: 1vh;
@@ -37,7 +40,7 @@ const SectionTitle = styled.div`
 `;
 
 const ItemSubscribe = styled.div`
-  color: #00b8ff;
+  color: #00B8ff;
   text-align: center;
   margin: 5px;
 `;
@@ -70,11 +73,20 @@ const TextSubtitle = styled.div`
   font-size: 11px;
   color: white;
 `;
-
+const ExpoloreMore = styled.div`
+  cursor: pointer;
+  color: #00B8ff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  margin-top: 15px;
+  display: inline-block;
+`;
 export default ({}) => {
   return (
     <RootContainer>
-      <Section>
+      <Section key={uuid.v4()}>
         <SectionTitle> Check out these blogs </SectionTitle>
         <SectionContent>
           {data.data.slice(0, 5).map((item) => {
@@ -91,9 +103,11 @@ export default ({}) => {
               </Item>
             );
           })}
+
+          <ExpoloreMore>Expolore more</ExpoloreMore>
         </SectionContent>
       </Section>
-      <Section>
+      <Section key={uuid.v4()}>
         <SectionTitle>Radar</SectionTitle>
         <SectionContent>
           <AdSection

@@ -29,17 +29,17 @@ export const TimelineItem = styled.div`
 `;
 
 const AvatarHover = styled.div`
-    display: none;
-    position: absolute;
-    box-sizing: border-box;
-    width: 20vh;
-    height: 30vh;
-    background: rgba(0,0,0,0.1);    
-    border: 1px solid rgba(0,0,0,0.1);
-    bottom: -30vh;            
-    &:hover {
-        display: block;
-    }    
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  width: 20vh;
+  height: 30vh;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  bottom: -30vh;
+  &:hover {
+    display: block;
+  }
 `;
 
 const AvatarSection = styled.div`
@@ -58,8 +58,10 @@ const AvatarSection = styled.div`
   &:hover ${AvatarHover} {
     display: none;
   }
+  @media (min-width: 450px) {
+    height: 7.7vh;
+  }
 `;
-// enable hover above with display: block;
 
 const Avatar = styled.div`
   display: flex;

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState }  from "react";
 import styled from "styled-components";
 import Icon from "./Icon.jsx";
 import { BsThreeDots } from "react-icons/bs";
 import { FaRegCommentDots } from "react-icons/fa";
 import { FaRegShareSquare } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import ModalAction from "./ModalAction.jsx";
 
 const Header = styled.div`
   margin: 3.2vh;
@@ -27,7 +28,7 @@ const HeaderActionsTop = styled.div`
 `;
 
 const HeaderActionsItem = styled.div`
-  color: #00b8ff;
+  color: #00B8ff;
   height: 1vw;
   font-size: 10px;
   display: flex;
@@ -59,8 +60,42 @@ const CornerButton = styled(Icon)`
   font-size: 5px;
 `;
 
-export default ({ type, author, score }) => {
-  if (type === "bottom") {
+ 
+
+export default ({ id, type, author, score }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
+  if (type === "top") {
+    return (
+      <div>
+        <Header>
+          <HeaderDetails>
+            {author}
+            <HeaderActionsItem>Follow</HeaderActionsItem>
+          </HeaderDetails>
+          <HeaderActionsTop>
+            <BsThreeDots
+              style={{
+                cursor: "pointer",
+                fontSize: "16px",
+                position: "relative",
+              }}
+              onClick={() => openModal(id)}
+            />
+            <ModalAction gif
+              id={id}
+              showModal={showModal}
+              setShowModal={setShowModal}
+            />
+          </HeaderActionsTop>
+        </Header>
+      </div>
+    );
+  } else {
     return (
       <div>
         <Actions>
@@ -91,20 +126,6 @@ export default ({ type, author, score }) => {
             />
           </HeaderActionsButton>
         </Actions>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <Header>
-          <HeaderDetails>
-            {author}
-            <HeaderActionsItem>Follow</HeaderActionsItem>
-          </HeaderDetails>
-          <HeaderActionsTop>
-            <BsThreeDots style={{ cursor: "pointer", fontSize: "16px" }} />
-          </HeaderActionsTop>
-        </Header>
       </div>
     );
   }

@@ -75,8 +75,7 @@ export default ({}) => {
         <NavUserItem>
           <Icon>R</Icon>
           <UserDetails>
-            User Details
-            <br />
+            Mouad <br />
             {new Date().toLocaleString()}
           </UserDetails>
         </NavUserItem>

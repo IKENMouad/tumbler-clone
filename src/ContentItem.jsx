@@ -17,16 +17,16 @@ const ItemSection = styled.div`
 `;
 
 const Content = styled.div`
-    background: lavender;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    box-sizing: border-box;
+  background: lavender;
+  height: 50vh; 
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  box-sizing: border-box;
 `;
 
 
-const AdSection = ({ title, author, height = 50 }) => {
+const AdSection = ({ id, title, author, height = 50 }) => {
   const AdSection = ItemSection.extend`
     box-shadow: 0px 0px 0px white;
   `;
@@ -36,25 +36,32 @@ const AdSection = ({ title, author, height = 50 }) => {
 
   return (
     <AdSection>
-      <ContentPanel type="top" author={author} />
+      <ContentPanel id={id} type="top" author={author} />
       {height ? (
         <ContentOverride> {title} </ContentOverride>
       ) : (
         <Content>{title}</Content>
       )}
-      <ContentPanel type="bottom" score="1234" />
+      <ContentPanel id={id} type="bottom" score="1234" />
     </AdSection>
   );
 };
 
 export { AdSection };
 
-export default ({ author, title, score }) => {
+export default ({ id, author, title, score, image, gif, video }) => {
   return (
     <ItemSection>
-      <ContentPanel type="top" author={author} />
-      <Content>{title}</Content>
-      <ContentPanel type="bottom" score={score} />
+      <ContentPanel id={id} type="top" author={author} />
+      <Content>
+        {/* {JSON.stringify(image)} */}
+        <img
+          src={image[0].url}
+          alt={image[0].url}
+          style={{ height: "50vh", width: "70vh" }}
+        />
+      </Content>
+      <ContentPanel id={id} type="bottom" score={score} />
     </ItemSection>
   );
 };

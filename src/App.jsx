@@ -44,7 +44,7 @@ class App extends Component{
             url: item.data.url,
             date: item.data.created_utc,
             category: item.data.subreddit,
-            image: item.data.preview.images[0].resolutions[1],
+            image: item.data.preview.images[0].resolutions,
             gif: item.data.preview.images[0].variants["gif"],
             video: item.data.preview.images[0].variants.mp4,
           };

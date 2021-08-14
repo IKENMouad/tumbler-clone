@@ -1,7 +1,10 @@
 node_modules
 dist/*
-notes.txt
+__tests__/*
+*.txt
 *Coding-Test.md
 .vscode
 yarn-error.log
+yarn-lock.log
+package-lock.log
 src/images/*

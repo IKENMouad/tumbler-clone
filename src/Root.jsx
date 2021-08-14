@@ -8,24 +8,30 @@ import Personal from "./Personal.jsx";
 
 
 const Root = () => {
-    const STX = styled.div`
-        width: 100%;
-        display: flex;                
-        flex-direction: column;
-        align-items: center;
-        box-sizing: border-box;
-    `;
+  const STX = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  `;
 
-    return (
-        <Router>            
-            <STX>
-                <Nav/>                        
-                <Route exact path = "/" component = {App}/>
-                <Route path = "/explore" component = {Explore}/>
-                <Route path = "/personal" component = {Personal}/>                                  
-            </STX>            
-        </Router>
-    );
+  const BorderNav = styled.div`
+    border-bottom: 3px solid white;
+  `;
+
+  return (
+    <Router>
+      <STX>
+        <Nav />
+        <BorderNav>
+        </BorderNav>
+          <Route exact path="/" component={App} />
+          <Route path="/explore" component={Explore} />
+          <Route path="/personal" component={Personal} />
+      </STX>
+    </Router>
+  );
 };
 
 
