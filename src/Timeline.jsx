@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ContentItem from "./ContentItem.jsx";
 
@@ -71,8 +72,44 @@ const Avatar = styled.div`
   text-transform: uppercase;
 `;
 
+const MainUrl = `https://api.unsplash.com/photos/`;
 
 export default ({ content }) => {
+  const [loading, setLoading] = useState(true);
+  const [photos, setPhoto] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const fetchImages =  () => {
+    setLoading(true);
+    let url = `${MainUrl}?client_id=_L58fCsi0-lwrlFt-UJkbskBT7EWP63zSs2RWdvusn8&page=${page}`;
+    axios
+      .get(url)
+      .then((response) => {
+        let myPhotos = [...photos, ...response.data];
+        setPhoto(myPhotos);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log("err", err);
+      });
+  };
+  
+  useEffect(() => {
+    fetchImages();
+  }, [page]);
+  
+  useEffect(() => {
+    const event = window.addEventListener("scroll", () => {
+      if (
+        loading &&
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 2
+      ) {
+        setPage((oldPage) => oldPage + 1);
+      }
+    });
+    return () => window.removeEventListener("scroll", event);
+  }, []);
   const listOfItems = content.map((item) => {
     return (
       <TimelineItem key={item.id}>
@@ -84,5 +121,17 @@ export default ({ content }) => {
       </TimelineItem>
     );
   });
-  return <Timeline>{listOfItems}</Timeline>;
+
+  const listOfPhotos = photos.map((item) => {
+    return (
+      <TimelineItem key={item.id}>
+        <AvatarSection>
+          <Avatar>{item.user.name[0] }</Avatar>
+          <AvatarHover />
+        </AvatarSection>
+        <ContentItem {...item}  />
+      </TimelineItem>
+    );
+  });
+  return <Timeline>{listOfPhotos}</Timeline>;
 };

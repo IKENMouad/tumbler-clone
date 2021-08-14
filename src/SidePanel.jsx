@@ -5,13 +5,15 @@ import data from "./data.json";
 import Icon from "./Icon.jsx";
 import { AdSection } from "./ContentItem.jsx";
 
-const RootContainer = styled.div`
-  display: block;
+
+
+const FixedContainer = styled.div`
+  width: 30%;
   margin-top: 2rem;
   flex-direction: column;
-  width: 30%;
   font-family: Helvetica;
-  font-size: 14px;
+  display: block;
+  // position: fixed;
   @media (min-width: 450px) {
     display: none;
   }
@@ -85,38 +87,40 @@ const ExpoloreMore = styled.div`
 `;
 export default ({}) => {
   return (
-    <RootContainer>
-      <Section key={uuid.v4()}>
-        <SectionTitle> Check out these blogs </SectionTitle>
-        <SectionContent>
-          {data.data.slice(0, 5).map((item) => {
-            return (
-              <Item key={uuid.v4()}>
-                <ItemDetails>
-                  <Icon>{item.name[0]}</Icon>
-                  <ItemTextContainer>
-                    <TextTitle>{item.name}</TextTitle>
-                    <TextSubtitle>{item.occupation}</TextSubtitle>
-                  </ItemTextContainer>
-                </ItemDetails>
-                <ItemSubscribe>Follow</ItemSubscribe>
-              </Item>
-            );
-          })}
+    // <RootContainer>
+      <FixedContainer>
+        <Section key={uuid.v4()}>
+          <SectionTitle> Check out these blogs </SectionTitle>
+          <SectionContent>
+            {data.data.slice(0, 5).map((item) => {
+              return (
+                <Item key={uuid.v4()}>
+                  <ItemDetails>
+                    <Icon>{item.name[0]}</Icon>
+                    <ItemTextContainer>
+                      <TextTitle>{item.name}</TextTitle>
+                      <TextSubtitle>{item.occupation}</TextSubtitle>
+                    </ItemTextContainer>
+                  </ItemDetails>
+                  <ItemSubscribe>Follow</ItemSubscribe>
+                </Item>
+              );
+            })}
 
-          <ExpoloreMore>Expolore more</ExpoloreMore>
-        </SectionContent>
-      </Section>
-      <Section key={uuid.v4()}>
-        <SectionTitle>Radar</SectionTitle>
-        <SectionContent>
-          <AdSection
-            author="Mouad"
-            height="40"
-            title="Ad TITLE that does stuff and stuff."
-          />
-        </SectionContent>
-      </Section>
-    </RootContainer>
+            <ExpoloreMore>Expolore more</ExpoloreMore>
+          </SectionContent>
+        </Section>
+        <Section key={uuid.v4()}>
+          <SectionTitle>Radar</SectionTitle>
+          <SectionContent>
+            <AdSection
+              author="Mouad"
+              height="40"
+              title="Ad TITLE that does stuff and stuff."
+            />
+          </SectionContent>
+        </Section>
+      </FixedContainer>
+    // </RootContainer>
   );
 };

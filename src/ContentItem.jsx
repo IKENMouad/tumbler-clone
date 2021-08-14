@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import Icon from "./Icon.jsx";
 import ContentPanel from "./ContentPanel.jsx";
+import Photo from "./Photo.jsx";
+import axios from "axios";
 
 const ItemSection = styled.div`
   margin-bottom: 2vh;
@@ -18,15 +20,14 @@ const ItemSection = styled.div`
 
 const Content = styled.div`
   background: lavender;
-  height: 50vh; 
+  height: 50vh;
+  max-width: 69.4vh;
   display: flex;
   align-items: center;
-  font-size: 20px;
   box-sizing: border-box;
 `;
 
-
-const AdSection = ({ id, title, author, height = 50 }) => {
+const AdSection = ({ id, user, likes, urls, alt_description,height = 50 }) => {
   const AdSection = ItemSection.extend`
     box-shadow: 0px 0px 0px white;
   `;
@@ -36,11 +37,11 @@ const AdSection = ({ id, title, author, height = 50 }) => {
 
   return (
     <AdSection>
-      <ContentPanel id={id} type="top" author={author} />
+      <ContentPanel id={id} type="top" author="mouad" />
       {height ? (
-        <ContentOverride> {title} </ContentOverride>
+        <ContentOverride> {alt_description} </ContentOverride>
       ) : (
-        <Content>{title}</Content>
+        <Content>{alt_description}</Content>
       )}
       <ContentPanel id={id} type="bottom" score="1234" />
     </AdSection>
@@ -49,19 +50,42 @@ const AdSection = ({ id, title, author, height = 50 }) => {
 
 export { AdSection };
 
-export default ({ id, author, title, score, image, gif, video }) => {
+
+// const ContentItem = ({ id, author, title, score, image }) => {
+//   return (
+//     <ItemSection>
+//       <ContentPanel id={id} type="top" author={author} />
+//       <Content>
+//         <img
+//           src={image[0].url}
+//           alt={title}
+//           style={{ width: "69.4vh", height: "50vh" }}
+//         />
+//       </Content>
+//       <ContentPanel id={id} type="bottom" score={score} />
+//     </ItemSection>
+//   );
+// };
+
+const ContentItem = ({ id, user, likes, urls, alt_description }) => {
   return (
     <ItemSection>
-      <ContentPanel id={id} type="top" author={author} />
-      <Content>
-        {/* {JSON.stringify(image)} */}
-        <img
-          src={image[0].url}
-          alt={image[0].url}
-          style={{ height: "50vh", width: "70vh" }}
-        />
-      </Content>
-      <ContentPanel id={id} type="bottom" score={score} />
+      {id ? (
+        <Fragment>
+          <ContentPanel id={id} type="top" author={user.name} />
+          <Content>
+            <img
+              src={urls.regular}
+              alt={alt_description}
+              style={{ width: "69.4vh", height: "50vh" }}
+            />
+          </Content>
+          <ContentPanel id={id} type="bottom" score={likes} />
+        </Fragment>
+      ) : (
+        "loading...  " + id
+      )}
     </ItemSection>
   );
 };
+export default ContentItem;

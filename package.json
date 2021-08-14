@@ -23,6 +23,7 @@
     "webpack-dev-server": "2.9.7"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "prop-types": "15.6.0",
     "react": "16.14.0",
     "react-dom": "16.14.0",

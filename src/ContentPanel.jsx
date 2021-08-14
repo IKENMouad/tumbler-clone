@@ -17,6 +17,9 @@ const HeaderDetails = styled.div`
   display: flex;
   cursor: pointer;
   font-size: 13px;
+  @media (min-width: 450px) {
+    font-size: 25px;
+  }
 `;
 
 const HeaderActionsButton = styled.div`
