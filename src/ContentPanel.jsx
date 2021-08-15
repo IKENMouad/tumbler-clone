@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { Fragment, useState }  from "react";
 import styled from "styled-components";
 import Icon from "./Icon.jsx";
 import { BsThreeDots } from "react-icons/bs";
@@ -74,62 +74,67 @@ export default ({ id, type, author, score }) => {
 
   if (type === "top") {
     return (
-      <div>
-        <Header>
-          <HeaderDetails>
-            {author}
-            <HeaderActionsItem>Follow</HeaderActionsItem>
-          </HeaderDetails>
-          <HeaderActionsTop>
-            <BsThreeDots
-              style={{
-                cursor: "pointer",
-                fontSize: "16px",
-                position: "relative",
-              }}
-              onClick={() => openModal(id)}
-            />
-            <ModalAction gif
-              id={id}
-              showModal={showModal}
-              setShowModal={setShowModal}
-            />
-          </HeaderActionsTop>
-        </Header>
-      </div>
+      <Header>
+        {id && (
+          <Fragment>
+            <HeaderDetails>
+              {author}
+              <HeaderActionsItem>Follow</HeaderActionsItem>
+            </HeaderDetails>
+            <HeaderActionsTop>
+              <BsThreeDots
+                style={{
+                  cursor: "pointer",
+                  fontSize: "16px",
+                  position: "relative",
+                }}
+                onClick={() => openModal(id)}
+              />
+              <ModalAction
+                gif
+                id={id}
+                showModal={showModal}
+                setShowModal={setShowModal}
+              />
+            </HeaderActionsTop>
+          </Fragment>
+        )}
+      </Header>
     );
   } else {
     return (
-      <div>
-        <Actions>
-          <HeaderDetails>
-            <BottomActionItem>{score} notes </BottomActionItem>
-          </HeaderDetails>
-          <HeaderActionsButton>
-            <FaRegCommentDots
-              style={{
-                margin: "0 10px",
-                fontSize: "24px",
-                cursor: "pointer",
-              }}
-            />
-            <FaRegShareSquare
-              style={{
-                margin: "0 10px",
-                fontSize: "24px",
-                cursor: "pointer",
-              }}
-            />
-            <FaRegHeart
-              style={{
-                margin: "0 0 0 10px ",
-                fontSize: "24px",
-                cursor: "pointer",
-              }}
-            />
-          </HeaderActionsButton>
-        </Actions>
-      </div>
+      <Actions>
+        {id && (
+          <Fragment>
+            <HeaderDetails>
+              <BottomActionItem>{score} notes </BottomActionItem>
+            </HeaderDetails>
+            <HeaderActionsButton>
+              <FaRegCommentDots
+                style={{
+                  margin: "0 10px",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                }}
+              />
+              <FaRegShareSquare
+                style={{
+                  margin: "0 10px",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                }}
+              />
+              <FaRegHeart
+                style={{
+                  margin: "0 0 0 10px ",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                }}
+              />
+            </HeaderActionsButton>
+          </Fragment>
+        )}
+      </Actions>
     );
   }
 };
