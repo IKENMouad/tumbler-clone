@@ -55,21 +55,22 @@ const SearchTitleContent = styled.a`
     background: white;
 `;
 
-const SearchInput = styled.input`     
-    width: 50vh;
-    box-sizing: border-box;
-    font-size: 20px;
-    padding-left: 2vh;
-    border: 2px solid transparent;    
-    
-    &:focus ~ ${SearchDropdownContainer} {
-        display: block;
-    }
-    
-    &:focus{
-        border-bottom: 2px solid black;
-        outline: none;
-    }  
+const SearchInput = styled.input`
+  width: 55vh;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 20px;
+  padding-left: 2vh;
+  border: 2px solid transparent;
+
+  &:focus ~ ${SearchDropdownContainer} {
+    display: block;
+  }
+
+  &:focus {
+    border-bottom: 2px solid black;
+    outline: none;
+  }
 `;
 
 const dummy = ["Namtab", "Batman", "Robin", "Nightwing", "Signal"];

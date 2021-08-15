@@ -5,8 +5,8 @@ import App from "./App.jsx";
 import Nav from "./Nav.jsx";
 import Explore from "./Explore.jsx";
 import Personal from "./Personal.jsx";
-
-
+import { Fragment } from "react";
+ 
 const Root = () => {
   const STX = styled.div`
     width: 100%;
@@ -16,20 +16,16 @@ const Root = () => {
     box-sizing: border-box;
   `;
 
-  const BorderNav = styled.div`
-    border-bottom: 3px solid white;
-  `;
 
+  
   return (
     <Router>
-      <STX>
+      <Fragment>
         <Nav />
-        <BorderNav>
-        </BorderNav>
-          <Route exact path="/" component={App} />
-          <Route path="/explore" component={Explore} />
-          <Route path="/personal" component={Personal} />
-      </STX>
+        <Route exact path="/" component={App} />
+        <Route path="/explore" component={Explore} />
+        <Route path="/personal" component={Personal} />
+      </Fragment>
     </Router>
   );
 };
