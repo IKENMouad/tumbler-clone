@@ -8,31 +8,33 @@ import { FaRegHeart } from "react-icons/fa";
 import ModalAction from "./ModalAction.jsx";
 
 const Header = styled.div`
-  margin: 3.2vh;
+  margin: 2vh;
   display: flex;
   justify-content: space-between;
-`;
-
+  background-color: white;
+  `;
+  
 const HeaderDetails = styled.div`
-  display: flex;
-  cursor: pointer;
-  font-size: 13px;
-  @media (min-width: 450px) {
-    font-size: 25px;
-  }
-`;
-
+    display: flex;
+    cursor: pointer;
+    font-size: 13px;
+    background-color: white;
+  `;
+  
 const HeaderActionsButton = styled.div`
+  background-color: white;
   display: flex;
 `;
 
 const HeaderActionsTop = styled.div`
   display: flex;
+  background-color: white;
 `;
 
 const HeaderActionsItem = styled.div`
   color: #00B8ff;
   height: 1vw;
+  background-color: white;
   font-size: 10px;
   display: flex;
   justify-content: center;
@@ -47,6 +49,7 @@ const HeaderActionsItem = styled.div`
 const BottomActionItem = styled.div`
   margin: 0;
   color: #000000a6;
+  background-color: white;
   font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial,
     sans-serif;
   cursor: pointer;
@@ -56,14 +59,9 @@ const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 2vh;
+  background-color: white;
 `;
 
-const CornerButton = styled(Icon)`
-  margin-left: 2vw;
-  font-size: 5px;
-`;
-
- 
 
 export default ({ id, type, author, score }) => {
   const [showModal, setShowModal] = useState(false);
@@ -87,6 +85,7 @@ export default ({ id, type, author, score }) => {
                   cursor: "pointer",
                   fontSize: "16px",
                   position: "relative",
+                  backgroundColor:'white'
                 }}
                 onClick={() => openModal(id)}
               />
@@ -103,11 +102,11 @@ export default ({ id, type, author, score }) => {
     );
   } else {
     return (
-      <Actions>
+      <Actions className="actions" > 
         {id && (
           <Fragment>
             <HeaderDetails>
-              <BottomActionItem>{score} notes </BottomActionItem>
+              <BottomActionItem>{score} notes</BottomActionItem>
             </HeaderDetails>
             <HeaderActionsButton>
               <FaRegCommentDots
@@ -115,6 +114,7 @@ export default ({ id, type, author, score }) => {
                   margin: "0 10px",
                   fontSize: "24px",
                   cursor: "pointer",
+                  backgroundColor: "white",
                 }}
               />
               <FaRegShareSquare
@@ -122,13 +122,15 @@ export default ({ id, type, author, score }) => {
                   margin: "0 10px",
                   fontSize: "24px",
                   cursor: "pointer",
+                  backgroundColor: "white",
                 }}
               />
               <FaRegHeart
                 style={{
-                  margin: "0 0 0 10px ",
+                  margin: "0 0 0 10px",
                   fontSize: "24px",
                   cursor: "pointer",
+                  backgroundColor: "white",
                 }}
               />
             </HeaderActionsButton>

@@ -37,7 +37,7 @@ const AdSection = ({ id, user, likes, urls, alt_description,height = 50 }) => {
   return (
     <AdSection>
       <ContentPanel id={id} type="top" author="mouad" />
-      {height != 50? (
+      {height != 50 ? (
         <ContentOverride> {alt_description} </ContentOverride>
       ) : (
         <Content>{alt_description}</Content>
