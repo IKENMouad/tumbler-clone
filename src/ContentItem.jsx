@@ -1,9 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
-import Icon from "./Icon.jsx";
 import ContentPanel from "./ContentPanel.jsx";
-import Photo from "./Photo.jsx";
-import axios from "axios";
 
 const ItemSection = styled.div`
   margin-bottom: 2vh;
@@ -20,10 +17,12 @@ const ItemSection = styled.div`
 
 const Content = styled.div`
   background: lavender;
-  height: 50vh;
-  max-width: 69.4vh;
+  height: auto;
+  max-width: 100%;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 `;
 
@@ -38,7 +37,7 @@ const AdSection = ({ id, user, likes, urls, alt_description,height = 50 }) => {
   return (
     <AdSection>
       <ContentPanel id={id} type="top" author="mouad" />
-      {height ? (
+      {height != 50? (
         <ContentOverride> {alt_description} </ContentOverride>
       ) : (
         <Content>{alt_description}</Content>
@@ -70,21 +69,19 @@ export { AdSection };
 const ContentItem = ({ id, user, likes, urls, alt_description }) => {
   return (
     <ItemSection>
-      {id ? (
-        <Fragment>
-          <ContentPanel id={id} type="top" author={user.name} />
-          <Content>
-            <img
-              src={urls.regular}
-              alt={alt_description}
-              style={{ width: "69.4vh", height: "50vh" }}
-            />
-          </Content>
-          <ContentPanel id={id} type="bottom" score={likes} />
-        </Fragment>
-      ) : (
-        "loading...  " + id
-      )}
+      <Fragment>
+        <ContentPanel id={id} type="top" author={user.name} />
+        <Content>
+          <img
+            src={urls.regular}
+            alt={alt_description}
+            style={{ width: "100%", height: "auto" }}
+          />
+          )
+        </Content>
+        <ContentPanel id={id} type="bottom" score={likes} />
+      </Fragment>
+      )
     </ItemSection>
   );
 };
