@@ -1,37 +1,29 @@
 {
   "name": "bloggingreactthing",
-<<<<<<< HEAD
   "version": "1.0.0",
-=======
-  "version": "1.0.0", 
->>>>>>> 8fcbb6af4d9f5307d56224459cd0352325d06713
   "private": true,
   "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
-<<<<<<< HEAD
-=======
-    "bootstrap": "^4.5.3",
-    "web-vitals": "^0.2.4",
->>>>>>> 8fcbb6af4d9f5307d56224459cd0352325d06713
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
     "axios": "^0.21.1",
-    "bootstrap": "4.6.0",
+    "bootstrap": "^4.5.3",
+    "node-sass": "4.14.1",
     "prop-types": "15.6.0",
     "react": "17.0.1",
-<<<<<<< HEAD
-    "react-bootstrap": "^2.0.0-beta.4",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "17.0.1",
-=======
-    "react-dom": "17.0.1",
-    "react-scripts": "4.0.1",
->>>>>>> 8fcbb6af4d9f5307d56224459cd0352325d06713
     "react-icons": "^4.2.0",
     "react-router-dom": "4.2.2",
     "react-scripts": "4.0.1",
     "react-spring": "^9.2.4",
     "styled-components": "3.2.5",
+    "typescript": "^4.3.5",
     "uuid": "3.2.1",
     "web-vitals": "^0.2.4"
   },
