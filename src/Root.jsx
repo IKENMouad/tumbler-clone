@@ -6,6 +6,8 @@ import Nav from "./Nav.jsx";
 import Explore from "./Explore.jsx";
 import Personal from "./Personal.jsx";
 import './styles/styles.scss' 
+import { Fragment } from "react";
+import Auth from "./Auth.jsx";
 
 
 const Root = () => {
@@ -24,6 +26,7 @@ const Root = () => {
       <Fragment>
         <Nav />
         <Route exact path="/" component={App} />
+        <Route exact path="/auth" component={Auth} />
         <Route path="/explore" component={Explore} />
         <Route path="/personal" component={Personal} />
       </Fragment>

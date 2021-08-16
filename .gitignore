@@ -9,3 +9,5 @@ yarn-lock.log
 package-lock.log
 src/images/*
 .eslintcache
+yarn.lock 
+yarn-error.log

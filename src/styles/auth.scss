@@ -1,15 +1,4 @@
-body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: #ededed;
-}
-
-input,
-button {
-  border: none;
-  outline: none;
-  background: none;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
+@import "./variables.scss";
 
 $contW: 900px;
 $imgW: 260px;
@@ -21,6 +10,14 @@ $btnH: 36px;
 
 $diffRatio: ($contW - $imgW) / $contW;
 
+input,
+button {
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
 @mixin signUpActive {
   .cont.s--signup & {
     @content;
@@ -29,8 +26,9 @@ $diffRatio: ($contW - $imgW) / $contW;
 
 .tip {
   font-size: 20px;
-  margin: 40px auto 50px;
+  margin: 10px auto 50px;
   text-align: center;
+  // background-color: $blueColor;
 }
 
 .cont {
@@ -38,8 +36,9 @@ $diffRatio: ($contW - $imgW) / $contW;
   position: relative;
   width: $contW;
   height: 550px;
-  margin: 0 auto 100px;
-  background: #fff;
+  margin: 60px auto 50px;
+  background: lavender;
+  border-radius: 5px;
 }
 
 .form {
