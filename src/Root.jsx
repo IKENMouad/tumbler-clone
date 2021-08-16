@@ -5,8 +5,9 @@ import App from "./App.jsx";
 import Nav from "./Nav.jsx";
 import Explore from "./Explore.jsx";
 import Personal from "./Personal.jsx";
-import { Fragment } from "react";
- 
+import './styles/styles.scss' 
+
+
 const Root = () => {
   const STX = styled.div`
     width: 100%;
