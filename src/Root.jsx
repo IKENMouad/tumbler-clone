@@ -8,6 +8,7 @@ import Personal from "./Personal.jsx";
 import './styles/styles.scss' 
 import { Fragment } from "react";
 import Auth from "./Auth.jsx";
+import MyNav from "./MyNav.jsx";
 
 
 const Root = () => {
@@ -24,7 +25,8 @@ const Root = () => {
   return (
     <Router>
       <Fragment>
-        <Nav />
+        {/* <Nav /> */}
+        <MyNav />
         <Route exact path="/" component={App} />
         <Route exact path="/auth" component={Auth} />
         <Route path="/explore" component={Explore} />
