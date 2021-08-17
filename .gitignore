@@ -1,10 +1,4 @@
 node_modules
-dist/*
-__tests__/*
-*.txt
-*Coding-Test.md
-.vscode
-yarn-error.log
-yarn-lock.log
-package-lock.log
-src/images/*
+yarn-error
+yarn.lock
+client/node_modules

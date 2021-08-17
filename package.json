@@ -1,53 +1,33 @@
 {
-  "name": "bloggingreactthing",
+  "name": "proshop",
   "version": "1.0.0",
-  "private": true,
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node back/server",
+    "server": "nodemon back/server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "data:import": "node back/seeder",
+    "data:destroy": "node back/seeder -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.8",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.0",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.6.1",
-    "@types/react": "^17.0.18",
-    "@types/react-dom": "^17.0.9",
-    "axios": "^0.21.1",
-    "bootstrap": "^4.5.3",
-    "node-sass": "4.14.1",
-    "prop-types": "15.6.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-icons": "^4.2.0",
-    "react-router-dom": "4.2.2",
-    "react-scripts": "4.0.1",
-    "react-spring": "^9.2.4",
-    "styled-components": "3.2.5",
-    "typescript": "^4.3.5",
-    "uuid": "3.2.1",
-    "web-vitals": "^0.2.4"
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
   }
 }
