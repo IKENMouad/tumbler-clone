@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
+
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -21,6 +22,10 @@ const userSchema = mongoose.Schema(
       required: true,
       default: false,
     },
+    hashs:[{
+      type: mongoose.Types.ObjectId, 
+      ref:'Hash'
+    }]
   },
   {
     timestamps: true,
