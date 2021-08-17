@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ContentItem from "./ContentItem.jsx";
+import ContentPanel from "./ContentPanel.jsx";
+
 
 const Timeline = styled.div`    
     width: 100%;
@@ -125,13 +127,63 @@ export default ({ content }) => {
   const listOfPhotos = photos.map((item) => {
     return (
       <TimelineItem key={item.id}>
-        <AvatarSection>
-          <Avatar>{item.user.name[0] }</Avatar>
-          <AvatarHover />
-        </AvatarSection>
-        <ContentItem {...item}  />
+        {!loading && (
+          <AvatarSection>
+            <Avatar>{item.user.name[0]}</Avatar>
+            <AvatarHover />
+          </AvatarSection>
+        )}
+        {!loading ? (
+          <ContentItem {...item} />
+        ) : (
+          <LoadingSection></LoadingSection>
+        )}
       </TimelineItem>
     );
   });
   return <Timeline>{listOfPhotos}</Timeline>;
 };
+
+const LoadingSection = ({}) => {
+  const AdSection = ItemSection.extend`
+    box-shadow: 0px 0px 0px white;
+  `;
+
+  return (
+    <AdSection>
+      <ContentPanel type="top" />
+      <Content>
+        <img
+          src="http://localhost:3000/assets/loading-gif.gif"
+          alt="loading-gif"
+          style={{ width: "100%", height: "auto" }}
+        />
+      </Content>
+      <ContentPanel type="bottom" />
+    </AdSection>
+  );
+};
+
+const ItemSection = styled.div`
+  margin-bottom: 2vh;
+  margin-top: 3vh;
+  background: white;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: Helvetica;
+  font-weight: bold;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const Content = styled.div`
+  background: lavender;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+`;

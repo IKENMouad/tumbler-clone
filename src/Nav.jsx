@@ -1,85 +1,101 @@
-import React from "react";
-import styled from "styled-components";
-import Search from "./Search.jsx";
-import Icon from "./Icon.jsx";
+import React, { useState } from "react";
+import { Fragment } from "react";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Nav = styled.div`
-  background: #001935;
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
-  box-sizing: border-box;
-  height: 5vh;
-  padding: 0 10vw 0 10vw;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  z-index: 10;
-`;
-const NavComponent = styled.div`
-  display: flex;
-`;
-const NavForm = styled.div`
-  background: white;
-  display: flex;
-`;
-
-const NavItem = styled.div`
-  background: lavender;
-  width: 5vh;
-  margin-right: 1vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bolder;
-`;
-
-const NavUserItem = styled.div`
-  background: white;
-  width: 20vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-`;
-
-const UserDetails = styled.div`
-  display: flex;
-  background: white;
-  box-sizing: border-box;
-  align-items: center;
-  height: 100%;
-  padding-left: 5px;
-  font-size: 13px;
-`;
-
-const StyledLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-`;
-
 export default ({}) => {
+  const [toggleDropDown, setToggleDropDown] = useState(false);
+   const showToggleDropDown = () => {
+     setToggleDropDown((toggleDropDown = !toggleDropDown));
+   };
+
   return (
-    <Nav>
-      <NavComponent>
-        <NavItem>
-          <StyledLink to="/">A</StyledLink>
-        </NavItem>
-        <NavForm>
-          <Search />
-        </NavForm>
-      </NavComponent>
-      <NavComponent>
-        <NavItem>
-          <StyledLink to="/explore">EX</StyledLink>
-        </NavItem>
-        <NavUserItem>
-          <Icon>R</Icon>
-          <UserDetails>
-            Mouad <br />
-            {new Date().toLocaleString()}
-          </UserDetails>
-        </NavUserItem>
-      </NavComponent>
-    </Nav>
+    <Fragment>
+      <nav className="navbar navbar-expand-md mx-5">
+        <Link className="navbar-brand" to="#">
+          Navbar
+        </Link>
+        <button
+          className="navbar-toggler d-lg-none"
+          type="button"
+          data-toggle="collapse"
+          data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="collapsibleNavId">
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item active">
+              <Link className="nav-link" to="#">
+                Home <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="#">
+                Link
+              </Link>
+            </li>
+          </ul>
+
+          <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li className="nav-item dropdown">
+              <a
+                onClick={() => showToggleDropDown}
+                className={`nav-link dropdown-toggle ${
+                  toggleDropDown ? "show" : null
+                } `}
+                id="dropdownId"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <div className="dropdown-menu" aria-labelledby="dropdownId">
+                <Link className="dropdown-item" to="#">
+                  Action 1
+                </Link>
+                <Link className="dropdown-item" to="#">
+                  Action 2
+                </Link>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </Fragment>
   );
 };
+
+// <Nav>
+//   <NavComponent>
+//     <NavItem>
+//       <StyledLink to="/">A</StyledLink>
+//     </NavItem>
+//     <NavForm>#001935
+//       <Search />
+//     </NavForm>
+//   </NavComponent>
+//   <NavComponent>
+//     <NavItem>
+//       <StyledLink to="/explore">
+//         <BsHouse></BsHouse>
+//       </StyledLink>
+//     </NavItem>
+//     <NavItem>
+//       <StyledLink to="/explore">EX</StyledLink>
+//     </NavItem>
+//     <NavItem>
+//       <StyledLink to="/explore">EX</StyledLink>
+//     </NavItem>
+//     <NavUserItem>
+//       <Icon>R</Icon>
+//       <UserDetails>
+//         Mouad <br />
+//       </UserDetails>
+//     </NavUserItem>
+//   </NavComponent>
+// </Nav>
