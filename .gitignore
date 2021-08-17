@@ -1,4 +1,5 @@
 node_modules
+<<<<<<< HEAD
 dist/*
 __tests__/*
 *.txt
@@ -11,3 +12,8 @@ src/images/*
 .eslintcache
 yarn.lock 
 yarn-error.log
+=======
+yarn-error
+yarn.lock
+client/node_modules
+>>>>>>> dev-config
