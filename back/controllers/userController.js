@@ -1,6 +1,6 @@
 import asyncHandler from 'express-async-handler'
-import generateToken from '../utils/generateToken.js'
 import User from '../models/User.model.js'
+import generateToken from '../utils/generateToken.js'
 
 
 const getUserProfile = asyncHandler(async (req, res) => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./styles/auth.scss";
 
-const Auth = () => {
+const Auth = ({}) => {
   useEffect(() => {
     document.querySelector(".img__btn").addEventListener("click", function () {
       document.querySelector(".cont").classList.toggle("s--signup");
@@ -10,7 +10,6 @@ const Auth = () => {
 
   return (
     <div>
-      {/* <p className="tip">Click on button in image container</p> */}
       <div className="cont">
         <div className="form sign-in">
           <h2>Welcome back,</h2>

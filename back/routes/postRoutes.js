@@ -1,12 +1,12 @@
 import express from 'express'
-import { createPostRequest, fetchPost, fetchPostsByHash, fetchPostsByTag } from '../controllers/postController'
+import { createPostRequest, fetchPost, fetchPostsByHash, fetchPostsByTag, } from '../controllers/postController.js'
 const router = express.Router()
 
 
 router.post('/create-post', createPostRequest)
-router.post('/by-hash/:hashId', fetchPostsByHash)
-router.post('/by-tag/:tagId', fetchPostsByTag)
-router.post('/:postId', fetchPost)
+router.get('/by-hash/:hashId', fetchPostsByHash)
+router.get('/by-tag/:tagId', fetchPostsByTag)
+router.get('/:postId', fetchPost)
 
 
 export default router 
