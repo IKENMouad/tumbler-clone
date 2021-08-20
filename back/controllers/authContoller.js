@@ -2,7 +2,7 @@ import asyncHandler from 'express-async-handler'
 import generateToken from '../utils/generateToken.js'
 import User from '../models/User.model.js'
 
-const login = asyncHandler(async (req, res) => {
+export const login = asyncHandler(async (req, res) => {
     const { email, password } = req.body
     const user = await User.findOne({ email })
 
@@ -20,7 +20,7 @@ const login = asyncHandler(async (req, res) => {
     }
   })
   
-  const register = asyncHandler(async (req, res) => {
+export  const register = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body
   
     const userExists = await User.findOne({ email })
@@ -48,7 +48,4 @@ const login = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error('Invalid user data')
     }
-  })
-  export {
-      login, register
-  }
+  }) 

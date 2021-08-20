@@ -1,8 +1,7 @@
 import React from "react";
-import {HashRouter as Router, Route, Link} from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
-import App from "./App.jsx";
-import Nav from "./Nav.jsx";
+import App from "./App.jsx"; 
 import Explore from "./Explore.jsx";
 import Personal from "./Personal.jsx";
 import './styles/styles.scss' 
@@ -24,8 +23,7 @@ const Root = () => {
   
   return (
     <Router>
-      <Fragment>
-        {/* <Nav /> */}
+      <Fragment> 
         <MyNav />
         <Route exact path="/" component={App} />
         <Route exact path="/auth" component={Auth} />

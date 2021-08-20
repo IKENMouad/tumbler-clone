@@ -1,6 +1,6 @@
 import express from 'express'
-import { login, register } from '../controllers/authContoller'
 const router = express.Router()
+import { login, register } from '../controllers/authContoller.js'
 
 
 router.post('/login' , login )
