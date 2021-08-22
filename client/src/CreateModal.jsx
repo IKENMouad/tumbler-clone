@@ -3,13 +3,11 @@ import { BsPencil } from "react-icons/bs";
 import styled from 'styled-components'
 import { AiOutlineTwitter, AiFillFacebook, AiOutlineGithub, AiFillYoutube, AiFillInstagram, AiOutlineClose } from "react-icons/ai";
 import { useRef, useState } from 'react';
-import useOnClickOutside from './shared/UseOnClickOutside';
 
 
 const CreateModal = () => {
     const ref = useRef();
-    const [showModal, setShowModal] = useState(false);
-    useOnClickOutside(ref, () => setShowModal(false));
+    const [showModal, setShowModal] = useState(false); 
 
 
     return (
@@ -62,7 +60,7 @@ const CreateModal = () => {
                             </div>
                             <span className="icon-label" >Youtube</span>
                         </div>
-                        <div class="vl"></div>
+                        <div className="vl"></div>
                         <div className="close-icon icon" onClick={onClick} >
                             <div className="type" >
                                 <div className="tooltip">Youtube</div>

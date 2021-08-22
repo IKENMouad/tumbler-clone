@@ -2,7 +2,6 @@ import asyncHandler from 'express-async-handler'
 import User from '../models/User.model.js'
 import generateToken from '../utils/generateToken.js'
 
-
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id)
 

@@ -290,3 +290,25 @@ input {
     right: 5px;
   }
 }
+
+// modal
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  // padding: 20px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 18px;
+  font-size: 30px;
+  text-align: center;
+  height: 8rem;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.grid-selected-item {
+  background-color: $blueColor;
+  color: red;
+}

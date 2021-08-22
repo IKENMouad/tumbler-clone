@@ -81,7 +81,6 @@ const ContentItem = ({ id, user, likes, urls, alt_description }) => {
         </Content>
         <ContentPanel id={id} type="bottom" score={likes} />
       </Fragment>
-      )
     </ItemSection>
   );
 };

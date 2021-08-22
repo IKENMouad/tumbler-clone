@@ -50,7 +50,7 @@ const AvatarSection = styled.div`
   box-sizing: border-box;
   background-color: #0fcafa;
   width: 10vh;
-  height: 8.4vh;
+  height: 8.2vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,8 +61,11 @@ const AvatarSection = styled.div`
   &:hover ${AvatarHover} {
     display: none;
   }
+  @media (min-width: 1200px) {
+    height: 8.2vh;
+  }
   @media (min-width: 450px) {
-    height: 7.7vh;
+    height: 6.8vh;
   }
 `;
 
