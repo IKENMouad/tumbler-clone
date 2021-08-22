@@ -15,11 +15,11 @@ const Header = styled.div`
   `;
   
 const HeaderDetails = styled.div`
-    display: flex;
-    cursor: pointer;
-    font-size: 13px;
-    background-color: white;
-  `;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: white;
+`;
   
 const HeaderActionsButton = styled.div`
   background-color: white;
@@ -32,11 +32,11 @@ const HeaderActionsTop = styled.div`
 `;
 
 const HeaderActionsItem = styled.div`
+  display: inline-block;
   color: #00B8ff;
   height: 1vw;
   background-color: white;
   font-size: 10px;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 0.5vw;
@@ -63,7 +63,7 @@ const Actions = styled.div`
 `;
 
 
-export default ({ id, type, author, score }) => {
+const ContentPanel  = ({ id, type, author, score }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -140,3 +140,5 @@ export default ({ id, type, author, score }) => {
     );
   }
 };
+
+export default ContentPanel;
